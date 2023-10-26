@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
+# Parses Apache log files in list format.
 
-# Use awk to group visitors by IP and HTTP status code, count occurrences, and display in the specified format
-awk '{count[$1" "$9]++} END {for (key in count) {print count[key], key}}' apache-access.log | sort -rn
+awk '{ print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
