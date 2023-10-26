@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script lists files in the current directory with text after the first dash.
+
+for file in *; do
+  if [[ -f $file && ! -h $file && ! $file == .* ]]; then
+    name="${file#*-}" # Remove text before the first dash
+    echo "$name"
+  fi
+done
