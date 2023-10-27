@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Creates the file /var/run/myscript.pid containing its PID
+
+pid_file="/var/run/myscript.pid"
+
+cleanup_and_exit() {
+    rm -f "$pid_file"
+    exit 0
+}
+
+echo $$ > "$pid_file"
+
+trap 'echo "I hate the kill command"; cleanup_and_exit' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
