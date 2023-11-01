@@ -61,3 +61,13 @@ The OSI (Open Systems Interconnection) model is a conceptual framework that stan
 11. Two-Way Communication: The internet is bidirectional, meaning that data flows back and forth. When you click a link, the request goes out, and the response (the web page) comes back to your device.
 
 12. Global Network: The internet is a global network because it connects devices all around the world. It doesn't matter where you are; you can access data and services from anywhere with internet access.
+
+## What is MAC Address
+
+A Media Access Control (MAC) address is a string of characters that identifies a device on a network. It’s tied to a key connection device in your computer called the network interface card, or NIC. The NIC is essentially a computer circuit card that makes it possible for your computer to connect to a network. A NIC turns data into an electrical signal that can be transmitted over the network. 
+[READ MORE](https://whatismyipaddress.com/mac-address)
+
+## What is an IP Address
+
+Every machine on the the Internet has a unique number assigned to it, called an IP address. Without a unique IP address on your machine, you will not be able to communicate with other devices, users, and computers on the Internet. You can look at your IP address as if it were a telephone number, each one being unique and used to identify a way to reach you and only you.
+[READ MORE](https://www.bleepingcomputer.com/tutorials/ip-addresses-explained/)
