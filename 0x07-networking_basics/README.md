@@ -131,19 +131,23 @@ The -lp option is used with netstat to display a list of active network connecti
 **Write a Bash script that pings an IP address passed as an argument**
 
 	if [ "$1" == "" ]; then
-    		echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+		echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 	else
-    		ping -c 5 "$1"
+		ping -c 5 "$1"
 	fi
 
 **if [ "$1" == "" ]; then:** 
+
 This line starts an if statement. It checks whether the first command-line argument (referred to as $1) is an empty string. The double equals (==) is used for string comparison. If there are no command-line arguments, it means the user did not provide an IP address.
 
 **echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}":**
+
 This line is within the if block and is executed if there are no command-line arguments. It displays a usage message indicating how to use the script, which is to provide an IP address as an argument.
 
 **else:**
+
 If there is at least one command-line argument, the script proceeds to the else block.
 
 **ping -c 5 "$1":**
+
 Within the else block, this line uses the ping command to send ICMP (Internet Control Message Protocol) echo requests to the IP address provided as the first command-line argument. It pings the IP address five times (-c 5). The IP address is obtained from the value of $1, which is the first argument passed to the script when it was executed.
