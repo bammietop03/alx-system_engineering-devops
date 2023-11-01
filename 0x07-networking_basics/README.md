@@ -19,17 +19,19 @@ The OSI (Open Systems Interconnection) model is a conceptual framework that stan
 
 ## Different types of network
 
-1. LAN (Local Area Network):
+**LAN (Local Area Network):**
 
 	Think of a LAN like your home or a small office network.
 	It's a small, private network that connects devices like computers, printers, and smartphones within a limited area, like a single building or your home.
 	It's like the local community of devices that can talk to each other, share files, and printers, but they don't extend too far beyond your home or office.
 
-2. WAN (Wide Area Network):
+**WAN (Wide Area Network):**
+
 	A WAN is like a vast network that covers a much larger area, like a city, country, or even the whole world.
 	It connects multiple LANs and other networks over long distances, often using the internet as the backbone.
 	Imagine it as the highways that connect different cities; it helps devices in one city (LAN) communicate with devices in other cities.
-3. WLAN (Wireless Local Area Network):
+**WLAN (Wireless Local Area Network):**
+
 	A WLAN is like a wireless version of a LAN.
 	Instead of using cables to connect devices, it uses Wi-Fi signals.
 	So, it's like having a local network in your home or office, but you can connect to it wirelessly with your laptop, smartphone, or tablet without plugging in any cables.
