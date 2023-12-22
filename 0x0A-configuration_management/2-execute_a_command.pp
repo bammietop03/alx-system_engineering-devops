@@ -1,5 +1,7 @@
-# create a manifest that kills a process named killmenow
-exec { 'killmenow':
-  command     => 'pkill killmenow',
-  refreshonly => true,
+# It creates a manifest that kills a process named killmenow.
+
+exec { 'pkill':
+  command  => 'pkill -f killmenow',
+  provider => 'shell',
+  onlyif   => 'pgrep -f killmenow'
 }
