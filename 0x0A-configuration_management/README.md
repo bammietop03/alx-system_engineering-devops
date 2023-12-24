@@ -55,6 +55,7 @@ Install Ruby: Puppet-lint is a Ruby gem, so you'll need Ruby installed on your s
 Install puppet-lint gem: Use the following command to install the puppet-lint gem:
 
 Install puppet
+
 	$ apt-get install -y ruby=1:2.7+1 --allow-downgrades
 	$ apt-get install -y ruby-augeas
 	$ apt-get install -y ruby-shadow
