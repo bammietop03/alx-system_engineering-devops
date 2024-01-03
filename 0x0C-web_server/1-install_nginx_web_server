@@ -7,4 +7,4 @@ sudo apt-get install -y nginx
 # Create a default HTML file with "Hello World!"
 echo "Hello World!" > /usr/share/nginx/html/index.html
 
-service nginx restart
+sudo service nginx restart
