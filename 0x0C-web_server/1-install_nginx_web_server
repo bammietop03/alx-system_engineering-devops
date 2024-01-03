@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Update package list and install nginx
+apt-get update
+apt-get install -y nginx
+
+# Create a default HTML file with "Hello World!"
+echo "Hello World!" > /usr/share/nginx/html/index.html
+
+# Restart nginx without using systemctl
+kill -s HUP $(pgrep -f "nginx: master process")
+
+# Check if nginx is running (alternative to systemctl)
+ps aux | grep nginx | grep -v grep > /dev/null
+
+# Output success message
+# echo "Nginx installed and configured successfully."
