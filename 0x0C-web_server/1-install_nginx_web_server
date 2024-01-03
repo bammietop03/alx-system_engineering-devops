@@ -5,6 +5,7 @@ sudo apt-get update -y
 sudo apt-get install -y nginx
 
 # Create a default HTML file with "Hello World!"
-sudo echo "Hello World!" > /usr/share/nginx/html/index.html
-
+# sudo echo "Hello World!" > /usr/share/nginx/html/index.html
+file1=/usr/share/nginx/html/index.html
+sudo bash -c "echo 'Holberton School ftw!' > $file1"
 sudo service nginx restart
