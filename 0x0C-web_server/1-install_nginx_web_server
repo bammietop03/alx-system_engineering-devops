@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
-
 # Update package list and install nginx
 sudo apt-get update -y
 sudo apt-get install -y nginx
-
-# Create a default HTML file with "Hello World!"
-# sudo echo "Hello World!" > /usr/share/nginx/html/index.html
 file1=/var/www/html/index.html
 sudo bash -c "echo 'Hello World!' > $file1"
-
-sudo service nginx restart
+service nginx restart
