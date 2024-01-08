@@ -11,8 +11,7 @@ frontend http_front
 
 backend http_back
         balance roundrobin
-        server 445499-web-01 54.87.208.50
-        server 445499-web-02 100.26.50.175
+        server 445499-web-01 54.87.208.50 check
+        server 445499-web-02 100.26.50.175 check
 EOF
-
 sudo service haproxy restart
