@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
-#Install and configure HAproxy on your lb-01 server.
+# configures a new HAproxy as a load balancer
 
-sudo apt-get update -y
-sudo apt-get install -y haproxy=2.0.\*
+# Install HAproxy on a server
+apt-get -y update
+apt-get -y install haproxy=1.6.\*
 
-sudo tee -a /etc/haproxy/haproxy.cfg >/dev/null <<EOF
-frontend http_front
+# Configure haproxy configuration file to distribute requests using a roundrobin algorithm
+echo '
+frontend Innocent.Sax
         bind 0:80
-        default_backend http_back
+        default_backend web_servers
 
-backend http_back
+backend web_servers
         balance roundrobin
-        server 445499-web-01 54.87.208.50 check
-        server 445499-web-02 100.26.50.175 check
-EOF
-sudo service haproxy restart
+	server 445499-web-01 54.87.208.50
+	server 445499-web-02 100.26.50.175
+' >> /etc/haproxy/haproxy.cfg
+
+# Restart HAproxy service
+service haproxy restart
