@@ -1,17 +1,28 @@
 #!/usr/bin/env bash
-# website
-if [ $# -eq 0 ]; then
-    exit
+# Function to display subdomain information
+display_info() {
+    local domain=$1
+    local subdomain=$2
+
+    if [ -n "$subdomain" ]; then
+	record_type="$(dig $subdomain."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{print $4}')"
+        destination=$(dig +short "$subdomain.$domain" | awk 'NR==1{print}')
+        echo "The subdomain $subdomain is a $record_type record and points to $destination"
+    else
+        subdomains=("www" "lb-01" "web-01" "web-02")
+        for sub in "${subdomains[@]}"; do
+	    record_type="$(dig $sub."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{print $4}')"
+            destination=$(dig +short "$sub.$domain" | awk 'NR==1{print}')
+            echo "The subdomain $sub is a $record_type record and points to $destination"
+        done
+    fi
+}
+
+# Check for correct number of arguments
+if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
+    echo "Usage: $0 domain [subdomain]"
+    exit 1
 fi
-sites=("www" "lb-01" "web-01" "web-02")
-if [ "$2" ]
-then
-    sites=("$2")
-fi
-for i in "${sites[@]}"
-do
-    first="$(dig $i."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{print $1}'|cut -d '.' -f1)"
-    second="$(dig $i."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{print $4}')"
-    third="$(dig $i."$1" | grep -A1 'ANSWER SECTION:'| tail -1 | awk '{print $5}')"
-    echo "The subdomain $first is a $second record and points to $third"
-done
+
+# Call the function
+display_info "$1" "$2"
