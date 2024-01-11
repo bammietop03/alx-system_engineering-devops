@@ -35,10 +35,7 @@ defaults
 
 frontend www-http
         bind *:80
-        default_backend http_back
-
-frontend www-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.bammietop.tech/fullchain.pem
+        bind *:443 ssl crt /etc/haproxy/ssl/www.bammietop.tech.pem
         reqadd X-Forwarded-Proto:\ https
         default_backend http_back
 
