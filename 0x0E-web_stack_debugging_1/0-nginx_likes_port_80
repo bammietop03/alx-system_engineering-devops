@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#comment
-file=/etc/nginx/sites-enabled/default
-sed -i 's/8080 default/80 default/' $file
+# This script automates and configures Nginx to listen on port 80
+
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
