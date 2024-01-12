@@ -41,5 +41,5 @@ frontend www-http
 
 backend http_back
         balance roundrobin
-        server 445499-web-01 54.87.208.50
-        server 445499-web-02 100.26.50.175
+        server 445499-web-01 54.87.208.50:80 check
+        server 445499-web-02 100.26.50.175:80 check
