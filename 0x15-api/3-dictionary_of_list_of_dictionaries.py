@@ -17,19 +17,16 @@ def get_todos():
         response = requests.get(url)
         userdata = response.json()
 
-        # Getting User Todos
-        todoUrl = baseUrl + "/todos"
-        responsei = requests.get(todoUrl)
-
         filename = "todo_all_employees.json"
-
-        # Extracting JSON data from the response
-        todos = responsei.json()
 
         dictionary = {}
         for data in userdata:
             user_id = data.get('id')
             username = data.get('username')
+
+            todoUrl = url + f"/{user_id}" + "/todos"
+            responsei = requests.get(todoUrl)
+            todos = responsei.json()
 
             dictionary[user_id] = []
             for todo in todos:
