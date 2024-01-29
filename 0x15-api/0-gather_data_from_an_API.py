@@ -42,7 +42,7 @@ def get_todos(employee_id):
               .format(employee_name, total_completed_tasks, total_tasks))
         # Printing titles of completed tasks
         for task in completed_tasks:
-            print(f"\t{task['title']}")
+            print(f"\t {task['title']}")
 
     except requests.exceptions.RequestException as e:
         print("Error:", e)
