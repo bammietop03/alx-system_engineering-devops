@@ -23,17 +23,15 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
+        root /var/www/html;
         # SSL configuration
         location /hbnb_static/{
                 alias /data/web_static/current/;
         }
 
         location /airbnb-onepage/ {
-                proxy_pass http://localhost:5000/airbnb-onepage/;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_pass http://localhost:5000;
+                include proxy_params;
         }
 
         location ~ /airbnb-dynamic/number_odd_or_even/(?<n>\d+)$ {
@@ -48,7 +46,7 @@ server {
 
         location / {
                 include proxy_params;
-                proxy_pass http://localhost:5003;
+                proxy_pass http://localhost:5003/2-hbnb;
 
         }
 
@@ -74,7 +72,6 @@ server {
         #
         # include snippets/snakeoil.conf;
 
-        root /var/www/html;
 
         # Add index.php to the list if you are using PHP
         index index.html index.htm index.nginx-debian.html;
@@ -131,4 +128,3 @@ server {
 #               try_files $uri $uri/ =404;
 #       }
 #}
-
